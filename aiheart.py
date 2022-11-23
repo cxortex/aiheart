@@ -24,6 +24,9 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.PULSE, dbc.icons.BOOT
             meta_tags=[{'name': 'viewport',
                             'content': 'width=device-width, initial-scale=1.0'}])
 
+                        
+server = app.server
+
 #Read files
 
 #Build components
@@ -38,81 +41,15 @@ app.layout = dbc.Container([
 # Top boarder
 
     dbc.Row([   # Top border 
-        dbc.Col([        #1st column
-            html.Div([
-                html.Div("Overview/Teamwork/Patient",
-                        className='text-end'),
-            ])
-        ], #width={'size': 4, 'order': 1})
-            xs=6, sm=6, md=6, lg=2, xl=2         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-        ),
 
-        dbc.Col([        #2st column
-            html.Div([
-                html.P("→ Patient profile", 
-                        style={"color": "purple"},     # #652d87
-                        className='text-start fw-bold')  
-            ])
-        ], #width={'size': 4, 'order': 1})
-            xs=6, sm=6, md=6, lg=2, xl=2         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-        ),
-
-        dbc.Col([        #3rd column
-            dbc.CardImg(
-                    src='https://strikersoft.com/media/images/SwipeCare_Heart_1000x213.width-300.png', alt='image',
-                    top=True, style={"width": "8rem", "margin": "auto"}, className="d-flex align-items-center"),               # image at the top
-        ],  #width={'size': 1, 'offset': 1}
-            xs=12, sm=12, md=12, lg=4, xl=4         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-        ),
-
-
-
-        dbc.Col([        #4th column
-           html.Div([
-                dbc.Label([
-                    "Light theme",
-                    html.I(className="bi bi-brightness-high-fill fa-fw"),
-                ],
-                className="d-flex align-items-center",
-                ),
-           ])
-        ], #width={'size': 4, 'order': 1})
-            xs=4, sm=4, md=4, lg=2, xl=2         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-        ),
-
-        dbc.Col([        #5th column
-           html.Div([
-                dbc.Label([
-                    "ENG",
-                    html.I(className="fa fa-globe fa-fw"),
-                ],
-                className="d-flex align-items-center",
-                ),
-           ])
-        ], #width={'size': 4, 'order': 1})
-            xs=4, sm=4, md=4, lg=1, xl=1         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-        ),
-
-        dbc.Col([        #6th column
-           html.Div([
-                dbc.Label([
-                    "John Doe",
-                    html.I(className="fa fa-arrow-right-from-bracket fa-fw"),
-                ],
-                className="d-flex align-items-center",
-                ),
-           ])
-        ], #width={'size': 4, 'order': 1})
-            xs=4, sm=4, md=4, lg=1, xl=1         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-        ),
-
-    ],  className="pt-3",  #Padding top
+        dbc.Col([
+                 dbc.CardImg(
+                  src='https://scontent.fbma6-1.fna.fbcdn.net/v/t1.15752-9/316431574_1210396629546436_4665762005072195176_n.png?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=H6qLm9Z_In8AX9KB2Mb&_nc_ht=scontent.fbma6-1.fna&oh=03_AdS-370PaVc0LPh5LhtGtHFgUjMwEk_aMOQEG8MrYRJvXQ&oe=63A4B7AB', alt='image',
+                    top=True, className="d-flex jusitfy-content-center"),               
+             # width={'size': 4, 'order': 1})     
+            ], width="auto",
+            ),  ],  className="pt-3",  #Padding top
         justify='start'),  #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
-
-
-    dbc.Row([   # Thin horozontal line across the screen
-        html.Div(html.Hr(style={'borderWidth': "0.8vh", "color": "#808080"}))
-    ]),
 
 
 # Below top boarder, 3 columns on screen 
@@ -123,134 +60,37 @@ dbc.Row([
     dbc.Col([
 
         dbc.Row([
-            dbc.Col([
-                dbc.Input(type="search", placeholder="🔍 Patientdatasökning"),
-                ]),
-        ]),
-
-        dbc.Row([
-        
-            dbc.Col([
                 dbc.CardImg(
-                    src='https://www.freeiconspng.com/uploads/msn-people-person-profile-user-icon--icon-search-engine-11.png', alt='image',
-                    top=True, style={"width": "1rem", "margin": "center"}, className="d-flex align-items-center"),      
-                ], align="center", xs=1, sm=1, md=1, lg=1, xl=1 ),
-                
-            dbc.Col([
-                dbc.Button(
-                    "Allmän information",
-                     id="collapse-button", className="mb-3 mt-3 px-5", color="light", n_clicks=0,
-                     ),
-
-                     dbc.Collapse(
-                        dbc.Card(
-                            dbc.CardBody([
-                                html.P("Namn", className="text-muted small mb-0"),
-                                html.P("Fiktiv Pojke", className='small'),
-
-                            dbc.Row([
-
-                                dbc.Col([
-                                    html.P("Personnummer", className="text-muted small mb-0"),
-                                    html.P("181010101010", className='small')
-                                ]),
-
-                                dbc.Col([
-                                    html.P("Kön", className="text-muted small mb-0"),
-                                    html.P("Male", className='small')
-                                ]),
-
-                                dbc.Col([
-                                    html.P("Ålder", className="text-muted small mb-0"),
-                                    html.P("211", className='small')
-                                ])
-                                ]),
-
-                            dbc.Row([
-                                html.P("E-post", className="text-muted small mb-0"),
-                                html.P("namn.namn@mail.com", className='small ms-0'),
-                                ]),
-
-                             dbc.Row([
-                                html.P("SMS-nummer", className="text-muted small mb-0"),
-                                html.P("+460760926576", className='small ms-0'),
-                                ]),
-                                ]) 
-                            ),   
-                        id="collapse",
-                        is_open=False,), 
-                ],
-                align="center", xs=12, sm=12, md=12, lg=11, xl=11 )
-            ]),
-
-        dbc.Row([
-
-            html.Br(),
-            html.Br(),
-            dbc.Col([
-                html.Br(),
-                dbc.Checklist(options=[
-                                {"label": "Tillåt e-post-aviseringar", "value": 1},
-                                {"label": "Tillåt SMS-aviseringar", "value": 2},
-                                ],value=[1],
-                                id="checklist-input",
-                                ),
-                ],
-                align="center", xs=12, sm=12, md=12, lg=8, xl=8),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-        ], justify='start'),
-
-        #dbc.Row([
-         #        dbc.CardImg(
-          #      src='https://strikersoft.com/media/images/Left_panel_SC_on_PC2.width-1280.png', alt='image',
-           #         top=True, style={"width": "18rem", "margin": "left"}, className="d-flex align-items-center"),               # image at the top
-            #         ],  #width={'size': 1, 'offset': 1}
-            #),
-        
-        dbc.Row([
-                
-                html.P('📞 Kontaktinformation'),
-                html.P('👥 Etiketter'),
-                html.P('📝 Anteckningar   ➕'),
-
-        ])
-                
-           
-
-    ],
+                src='https://strikersoft.com/media/images/Left_panel_SC_on_PC2.width-1280.png', alt='image',
+                    top=True, style={"width": "18rem", "margin": "left"}, className="d-flex align-items-center"),               # image at the top
+                     ],  #width={'size': 1, 'offset': 1}
+            ),],
     align="start", xs=12, sm=12, md=12, lg=3, xl=3         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 et
 
     ),
     
-
 # Column middle with input sections for AI Heart
     dbc.Col([  # Middle column on screen
         
         dbc.Row([
                 dbc.Col([        # Hace to define the column first. The first column
-                    html.H3("AI Heart Disease Detection",
+                    html.H3("AI detektering av kranskärlssjukdom",
                         className='text-center', style={"color": "#000000"}),    # Bootstrap specification (see Cheat Sheet)
             ], #width={'size': 4, 'order': 1})
                 xs=12, sm=12, md=12, lg=12, xl=12         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             )
         ]),
-
-        dbc.Row([   # Thin horozontal line across the screen
-            html.Div(html.Hr(style={'borderWidth': "0.8vh", "color": "#808080"}))
-        ]),         
                    
         dbc.Row([   # Q1 Age
             dbc.Col([        
-                dbc.Label("1. Age:", className='fw-bold text-center'),
+
+                html.Br(),
+
+                dbc.Label("1. Ålder:", className='fw-bold text-center'),
                 ], xs=12, sm=12, md=12, lg=5, xl=5
                 ),
             dbc.Col([
-                dbc.Input(id="age_var", placeholder="Enter age in years", type="number", min=0, max=120, step=1, style={"border-radius": "7px"}),
+                dbc.Input(id="age_var", placeholder="Ange ålder i år", type="number", min=0, max=120, step=1, style={"border-radius": "7px"}),
             ], #width=({'size': 3})
                 xs=12, sm=12, md=12, lg=6, xl=6      # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             )
@@ -259,13 +99,13 @@ dbc.Row([
   
         dbc.Row([   # Q2 Sex
             dbc.Col([        
-                dbc.Label("2. Sex:", className='fw-bold'),  # Bold does not work...
+                dbc.Label("2. Kön:", className='fw-bold'),  # Bold does not work...
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([
                 dbc.RadioItems(
                     options=[
-                        {"label": "Male", "value": "Male"},
-                        {"label": "Female", "value": "Female"},
+                        {"label": "Man", "value": 1 },
+                        {"label": "Kvinna", "value": 0 },
                     ],
                     value="None",    #Initial value shown labelStyle 
                     id="sex_var",
@@ -279,15 +119,15 @@ dbc.Row([
 
         dbc.Row([   # Q3 Chest Pain Type
             dbc.Col([        
-                dbc.Label("3. Chest Pain Type:", className='fw-bold'),
+                dbc.Label("3. Typ av bröstsmärtor:", className='fw-bold'),
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([
                 dbc.RadioItems(
                     options=[
-                        {"label": "Typical angina", "value": "ChestPainTyp"},
-                        {"label": "Non-anginal pain", "value": "ChestPainNon"},
-                        {"label": "Atypical angina", "value": "ChestPainAtyp"},
-                        {"label": "Asymptomatic", "value": "ChestPainAsym"},
+                        {"label": "Typisk angina", "value": 1 },
+                        {"label": "Icke-anginös", "value": 3 },
+                        {"label": "Atypisk angina", "value": 2 },
+                        {"label": "Asymtomatisk", "value": 4 },
                     ],
                     # value="Q3-1",    #Initial value shown
                     id="cp_var",
@@ -301,7 +141,7 @@ dbc.Row([
 
         dbc.Row([   # Q4 Resting Blood Pressure
             dbc.Col([        
-                dbc.Label("4. Resting Blood Pressure (Systolic):", className='fw-bold'),
+                dbc.Label("4. Blodtryck (vilande, systoliskt):", className='fw-bold'),
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([
                 dbc.Input(id="trestbps_var", placeholder="mmHg", type="number", min=40, max=380, step=1, style={"border-radius": "7px"}), 
@@ -313,7 +153,7 @@ dbc.Row([
 
         dbc.Row([   # Q5 Serum Cholesterol
             dbc.Col([        
-                dbc.Label("5. Serum Cholesterol:", className='fw-bold'),
+                dbc.Label("5. Serumkolesterol:", className='fw-bold'),
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([
                 dbc.Input(id="chol_var", placeholder="mg/dL", type="number", min=30, max=999, step=1, style={"border-radius": "7px"}),   #MIN/MAX???????
@@ -325,10 +165,10 @@ dbc.Row([
 
         dbc.Row([   # Q6 Achieved max heart rate
             dbc.Col([        
-                dbc.Label("6. Achieved Max. Heart Rate:", className='fw-bold'),
+                dbc.Label("6.  Max. hjärtfrekvens uppnådd:", className='fw-bold'),
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([
-                dbc.Input(id="thalach_var", placeholder="bpm", type="number", min=25, max=500, step=1, style={"border-radius": "7px"}),  
+                dbc.Input(id="thalach_var", placeholder="slag/minut", type="number", min=25, max=500, step=1, style={"border-radius": "7px"}),  
             ], #width={'size': 4, 'order': 2})
                 xs=12, sm=12, md=12, lg=6, xl=6         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             )
@@ -337,13 +177,13 @@ dbc.Row([
 
         dbc.Row([   # Q7 Exercised-induced angina
             dbc.Col([        
-                dbc.Label("7. Exercise-induced Angina", className='fw-bold')
+                dbc.Label("7. Stabil angina:", className='fw-bold')
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([ 
                 dbc.RadioItems(
                     options=[
-                        {"label": "Yes", "value": "Angina-Yes"},
-                        {"label": "No", "value": "Angina-No"},
+                        {"label": "Ja", "value": 1 },
+                        {"label": "Nej", "value": 0 },
                     ],
                     #value="Male",    #Initial value shown
                     id="exang_var",
@@ -357,7 +197,7 @@ dbc.Row([
 
         dbc.Row([   # Q8 ST depression induced by exercise relative to rest
             dbc.Col([        
-                dbc.Label("8. ST Depression Induced by Exercise Relative to Rest:", className='fw-bold'),
+                dbc.Label("8. ST-depression inducerad av träning i relation till vila:", className='fw-bold'),
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([
                 dbc.Input(id="oldpeak_var", placeholder="mm", type="number", min=0, max=50, style={"border-radius": "7px"}),   #MIN/MAX???????
@@ -369,14 +209,14 @@ dbc.Row([
 
         dbc.Row([   # Q9 Peak slope in exercise ST segment
             dbc.Col([        
-                dbc.Label("9. Peak Slope in Exercise ST Segment:", className='fw-bold'),
+                dbc.Label("9. Peak Slope i ST Segment under övning:", className='fw-bold'),
                  ], xs=12, sm=12, md=12, lg=5, xl=5 ),
             dbc.Col([ 
                 dbc.RadioItems(
                     options=[
-                        {"label": "Up", "value": "STsegmUp"},
-                        {"label": "Plain", "value": "STsegmPlain"},
-                        {"label": "Down", "value": "STsegmDown"},
+                        {"label": "Upp", "value": 1 },
+                        {"label": "Platt", "value": 2 },
+                        {"label": "Ner", "value": 3 },
                     ],
                     # value="Q3-1",    #Initial value shown
                     id="slope_var",
@@ -388,17 +228,49 @@ dbc.Row([
         ],  className="pt-4 pb-0",
             justify='start'),  #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
 
+         dbc.Row([   # Q10 Fasting blood sugar
+            dbc.Col([        
+                dbc.Label("10. Fastande blodsocker  > 120 mg/dl:", className='fw-bold'),  # Bold does not work...
+                ], xs=12, sm=12, md=12, lg=5, xl=5 ),
+            dbc.Col([
+                dbc.RadioItems(
+                    options=[
+                        {"label": "Ja", "value": 1 },
+                        {"label": "Nej", "value": 0 },
+                    ],
+                       #Initial value shown labelStyle 
+                    id="fbs_var",
+                    inline=True,
+                ),      
+            ], #width={'size': 4, 'order': 1})
+                xs=12, sm=12, md=12, lg=6, xl=6        # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
+            )
+        ],  className="pt-4", 
+            justify='start'),  #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
+
+         dbc.Row([   # Q11 Resting electrocardiographic results
+            dbc.Col([        
+                dbc.Label("11. Vilande elektrokardiografiska resultat:", className='fw-bold'),  # Bold does not work...
+                ], xs=12, sm=12, md=12, lg=5, xl=5 ),
+            dbc.Col([
+                dbc.RadioItems(
+                    options=[
+                        {"label": "Normal", "value": 0 },
+                        {"label": "ST-T vågavvikelse", "value": 1 },
+                        {"label": "Vänsterkammarhypertrofi (Estes kriterier)", "value": 2 },
+                    ],
+                        #Initial value shown labelStyle 
+                    id="restecg_var",
+                    inline=True,
+                ),      
+            ], #width={'size': 4, 'order': 1})
+                xs=12, sm=12, md=12, lg=6, xl=6        # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
+            )
+        ],  className="pt-4", 
+            justify='start'),  #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
+
+
     
-
-     #dbc.Row([   # Outcome of prediction (Heart problems or not)
-           # dbc.Col([  
-               # dbc.Alert(children="Please enter patient information.", id="output_var", color="light"),
-         #   ], #width={'size': 4, 'order': 1})           
-          #      xs=12, sm=12, md=12, lg=12, xl=12         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
-          #  )
-      #  ],  className="pt-0",
-      #      justify='center'),  #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
-
 
     # End of Middle column
     ], class_name="pt-0", style={'height': '700px', 'overflow': 'scroll'},
@@ -409,32 +281,42 @@ dbc.Row([
     dbc.Col([
         dbc.Row([
             dbc.CardImg(
-                    src='https://strikersoft.com/media/images/Right_panel_SC_on_PC2.width-1280.png', alt='image',
+                  src='https://scontent.fbma6-1.fna.fbcdn.net/v/t1.15752-9/316376941_864658478223477_1471085747901715319_n.png?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=fZGxCe3jSi4AX9CsZjB&_nc_ht=scontent.fbma6-1.fna&oh=03_AdTcX8GXHyDebOcp0Vke4e7mzFY81vlusazy37Yr0qY1-g&oe=63A4B27A', alt='image',
                     top=True, className="d-flex jusitfy-content-center", style={"width": "18rem"}),               # image at the top
+              #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
+            #html.Br(),
+            #html.Br(),
+            #html.Br(), #Artefakt
+
+            html.Br(),
             ],  
             className="pt-1",
-            justify='center'),  #can also use center, end, between, around. 'start' = everything in the row will be put to the left of the screen
+            justify='center'),
             html.Br(),
             html.Br(),
-            html.Br(),
+            
 
          dbc.Row([   # Button to predict
             dbc.Col([        
-                dbc.Button("Calculate", id="predict_button", n_clicks=0, color="primary", size="lg", className="me-2", style={"border-radius": "7px"}),            
+                dbc.Button("Beräkna", id="predict_button", n_clicks=0, color="primary", size="lg", className="me-2", style={"border-radius": "7px"}),            
             ], #width={'size': 4, 'order': 1})
                 xs=12, sm=12, md=12, lg=4, xl=4        # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             ),
 
             dbc.Col([        
-                dbc.Button("Reset", id="reset_button", outline=True, color="secondary", size="lg", className="me-0", style={"border-radius": "7px"}),             
-            ], #width={'size': 4, 'order': 1})
+                dbc.Button("Återställa", id="reset_button", outline=True, color="secondary", size="lg", className="me-0", style={"border-radius": "7px"}),             
+                dcc.Location(id='url', refresh=True), 
+                ], #width={'size': 4, 'order': 1})
+
+                
+
                 xs=12, sm=12, md=12, lg=4, xl=4        # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             ),],  
             className="pt-1",
             justify='center'),
             
         dbc.Row([
-            dbc.Col([ dbc.Alert(children="Please enter patient information.", id="output_var", color="light"),
+            dbc.Col([ dbc.Alert(children="Ange patientinformation.", id="output_var", color="light"),
             ], align="center", #width={'size': 4, 'order': 1})           
                 xs=12, sm=12, md=12, lg=12, xl=12         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
                 )
@@ -464,25 +346,41 @@ dbc.Row([
      State(component_id="thalach_var", component_property="value"),
      State(component_id="exang_var", component_property="value"),
      State(component_id="oldpeak_var", component_property="value"),
-     State(component_id="slope_var", component_property="value")],
+     State(component_id="slope_var", component_property="value"),
+     State(component_id="fbs_var", component_property="value"),
+     State(component_id="restecg_var", component_property="value")],
     Input(component_id="predict_button", component_property="n_clicks"),
     prevent_initial_call=False   # When webpage is refreshed, it triggers all recalls, dont want that = True
 )
 
 
 
-def saved_model(sex, age, cp, trestbps, chol, thalach, exang, oldpeak, slope, n_clicks):
+def aimodel(sex, age, cp, trestbps, chol, thalach, exang, oldpeak, slope, fbs, restecg, n_clicks):
+
+   
     if n_clicks > 0:
+
+        if sex is None: raise dash.exceptions.PreventUpdate  
+        elif slope is None: 
+            raise dash.exceptions.PreventUpdate 
+        elif exang is None:
+             raise dash.exceptions.PreventUpdate 
+        elif cp is None:
+                raise dash.exceptions.PreventUpdate 
+        elif fbs is None:
+                raise dash.exceptions.PreventUpdate 
+        elif restecg is None:
+                raise dash.exceptions.PreventUpdate 
         
         # Mattias code
         tmp_df = pd.DataFrame({"sex": [sex], "age": [age], "cp": [cp], "trestbps": [trestbps], "chol": [chol],
-                                  "thalach": [thalach], "exang": [exang], "oldpeak": [oldpeak], "slope": [slope]})
+                                  "thalach": [thalach], "exang": [exang], "oldpeak": [oldpeak], "slope": [slope], "fbs": [fbs], "restecg": [restecg]})
 
         num_feats = ["age", "trestbps", "chol", "thalach", "oldpeak"]
-        cat_feats = ["slope", "sex", "exang", "cp"]
+        cat_feats = ["slope", "sex", "exang", "cp", "fbs", "restecg"]
 
         
-        with open(r"saved_model", "rb") as pickle_file:
+        with open(r"aimodel", "rb") as pickle_file:
                 clf = pickle.load(pickle_file)
         
 
@@ -490,8 +388,64 @@ def saved_model(sex, age, cp, trestbps, chol, thalach, exang, oldpeak, slope, n_
         result = clf.predict(tmp_df)
         print(result)
 
-        presence = dbc.Alert("Patient may have presence of heart disease.", color="danger",style={"border-radius": "7px"}, className='fw-bold color black')
-        absence = dbc.Alert("Patient is not suspected to have heart disease.",style={"border-radius": "7px"}, color="success", className='fw-bold color black')
+        presence = (
+
+            dbc.Row([   # Red Alert for presence
+             dbc.Col([
+
+                dbc.Alert([
+                html.Br(),
+                html.P("Patienten misstänks ha hjärtsjukdom.",className='fw-bold color black'),
+                html.Br(),
+                html.P("Angiografisk sjukdomsstatus: troligen mer än 50 % av diameterförträngning i något av de större blodkärlen.",
+                className="fw-light fst-italic color black fs-6") ], color="danger",style={"border-radius": "7px"}),
+
+            ], width="auto",
+            ), ],
+            className="pt-1",
+            justify='center'),
+
+
+            dbc.Row([   # Button for next flöde presence
+             dbc.Col([
+                 dbc.CardImg(
+                  src='https://scontent.fbma6-1.fna.fbcdn.net/v/t1.15752-9/316570964_1201350570761046_7614393478068967558_n.png?_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_ohc=0anuzkIV88kAX8h4cAL&_nc_ht=scontent.fbma6-1.fna&oh=03_AdQdChGw9Sq8uOcVu9Dq3xzTFWxSwu8YqV1deJHWYwo4TA&oe=63A4B5E7', alt='image',
+                    top=True, className="d-flex jusitfy-content-center", style={"width": "18rem"}),               
+             # width={'size': 4, 'order': 1})     
+            ], width="auto",
+            ), ],
+            className="pt-1",
+            justify='center'),)
+
+        
+
+        absence = (
+
+            dbc.Row([   # Green Alert for absence
+             dbc.Col([
+
+                dbc.Alert([
+                html.Br(),
+                html.P("Patienten misstänks inte ha hjärtsjukdom.",className='fw-bold color black'),
+                html.Br(),
+                html.P("Angiografisk sjukdomsstatus: troligen mindre än 50 % av diameterförträngning i något av de större blodkärlen.",
+                className="fw-light fst-italic color black fs-6")], color="success",style={"border-radius": "7px"}),
+
+            ], width="auto",
+            ), ],
+            className="pt-1",
+            justify='center'),
+
+            dbc.Row([   # Button for next flöde absence
+             dbc.Col([
+               dbc.CardImg(
+                  src='https://scontent.fbma6-1.fna.fbcdn.net/v/t1.15752-9/316434758_3338857346399872_2612297108512680666_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=KHOt9vb8Pt4AX9IEH1U&_nc_ht=scontent.fbma6-1.fna&oh=03_AdQWix17H1SIz_OAMXDeXPTqgMKcm_Jddxvq_7lRJFHlew&oe=63A4D08A', alt='image',
+                    top=True, className="d-flex jusitfy-content-center", style={"width": "18rem"}),            
+             #width={'size': 4, 'order': 1}) 
+            ], width="auto",
+            ), ],
+            className="pt-1",
+            justify='center'),)
 
        
         if result == True:
@@ -501,7 +455,7 @@ def saved_model(sex, age, cp, trestbps, chol, thalach, exang, oldpeak, slope, n_
     
 
     elif n_clicks == 0:
-        nrzero= dbc.Alert("Please enter patient information.", color="light")
+        nrzero= dbc.Alert("Ange patientinformation.", color="light")
         return nrzero
         raise dash.exceptions.PreventUpdate   # Dont update if field filled out but button not clicked
    
@@ -517,22 +471,25 @@ def saved_model(sex, age, cp, trestbps, chol, thalach, exang, oldpeak, slope, n_
      Output(component_id="exang_var", component_property="value"),
      Output(component_id="oldpeak_var", component_property="value"),
      Output(component_id="slope_var", component_property="value"),
+     Output(component_id="fbs_var", component_property="value"),
+     Output(component_id="restecg_var", component_property="value"),
      Output(component_id="predict_button", component_property="n_clicks")],
     [Input('reset_button','n_clicks')])
 
-def update(reset):
-    return 'None', 'Enter value', 'Male', 'Enter value', 'Enter value', 'Enter value', 'Male', 'Enter value', 'Male', 0
+def update(reset):  
+    html.A(html.Button('Refresh Data'),href='/'),
+    return None, None, None, None, None, None, None, None, None, None, None, 0
 
 
 @app.callback(
-    Output("collapse", "is_open"),
-    [Input("collapse-button", "n_clicks")],
-    [State("collapse", "is_open")],
+    Output("url", "href"),
+    Input("App-logo", "n_clicks"),
+    prevent_initial_call=True,
 )
-def toggle_collapse(n, is_open):
-    if n:
-        return not is_open
-    return is_open
+def reload_data(_):
+    return "/"
+
+
 
 
 
