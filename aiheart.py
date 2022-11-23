@@ -76,6 +76,9 @@ dbc.Row([
                 dbc.Col([        # Hace to define the column first. The first column
                     html.H3("AI detektering av kranskärlssjukdom",
                         className='text-center', style={"color": "#000000"}),    # Bootstrap specification (see Cheat Sheet)
+                    html.Br(),
+                    html.Br(),
+                    html.Br(),
             ], #width={'size': 4, 'order': 1})
                 xs=12, sm=12, md=12, lg=12, xl=12         # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             )
