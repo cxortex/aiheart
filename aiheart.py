@@ -250,7 +250,11 @@ dbc.Row([
          dbc.Row([   # Q11 Resting electrocardiographic results
             dbc.Col([        
                 dbc.Label("11. Vilande elektrokardiografiska resultat:", className='fw-bold'),  # Bold does not work...
+                html.Br(),
+                html.Br(),
                 ], xs=12, sm=12, md=12, lg=5, xl=5 ),
+                   
+
             dbc.Col([
                 dbc.RadioItems(
                     options=[
@@ -262,6 +266,8 @@ dbc.Row([
                     id="restecg_var",
                     inline=True,
                 ),      
+                html.Br(),
+                html.Br(),
             ], #width={'size': 4, 'order': 1})
                 xs=12, sm=12, md=12, lg=6, xl=6        # Responsive. For xs (xSmall) size screens make column 12 columns wide, for xLarge make it 5 etc
             )
