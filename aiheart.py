@@ -44,7 +44,7 @@ app.layout = dbc.Container([
 
         dbc.Col([
                  dbc.CardImg(
-                  src='https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/317467413_531742518830577_1100257931300390415_n.png?stp=dst-png_s2048x2048&_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=LsC_ZrM3PN0AX8Lmm8U&_nc_ht=scontent-arn2-1.xx&oh=03_AdSU3qsVA0Q7Hr4rKDcsGedlobNv8FwieAuqGQ2QjrFsPA&oe=63B0171B', alt='image',
+                  src='https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/317467413_531742518830577_1100257931300390415_n.png?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=LsC_ZrM3PN0AX8Lmm8U&_nc_ht=scontent-arn2-1.xx&oh=03_AdRBHly65Nk27-7P8C16gQ1U18S8u0ZUR8uiX2bQDV8B0Q&oe=63B0171B', alt='image',
                     top=True, className="d-flex jusitfy-content-center"),               
              # width={'size': 4, 'order': 1})     
             ], width="auto",
