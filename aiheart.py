@@ -61,7 +61,7 @@ dbc.Row([
 
         dbc.Row([
                 dbc.CardImg(
-                src='https://strikersoft.com/media/images/Left_panel_SC_on_PC2.width-1280.png', alt='image',
+                src='https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/317603846_1173980056842153_1585112333669881218_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_ohc=ZmdVqOF6j48AX99kyeA&_nc_ht=scontent-arn2-1.xx&oh=03_AdR6XAkekXWqSb2nHfNJSKaMXqzPILrPCwQPa7371ka5gw&oe=63B03FC2', alt='image',
                     top=True, style={"width": "18rem", "margin": "left"}, className="d-flex align-items-center"),               # image at the top
                      ],  #width={'size': 1, 'offset': 1}
             ),],
